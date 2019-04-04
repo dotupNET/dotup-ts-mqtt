@@ -11,7 +11,7 @@
 ## Usage
 
 ## Release Notes
-### 1.0.0
+### 0.0.1
 
 Fixes/Features:
 - Initial release
