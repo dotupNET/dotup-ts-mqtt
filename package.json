@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "dotup-ts-mqtt",
   "author": {
     "name": "Peter Ullrich",
@@ -47,7 +47,7 @@
     "npm-publish": "npm publish"
   },
   "dependencies": {
-    "dotup-ts-logger": "0.0.13",
+    "dotup-ts-logger": "0.1.0",
     "dotup-ts-types": "0.0.23",
     "mqtt": "^2.18.8",
     "node-uuid": "^1.4.8"

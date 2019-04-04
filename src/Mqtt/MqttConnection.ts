@@ -83,7 +83,7 @@ export class MqttConnection implements IPublisher, IDisposable {
     // }
     const m = JSON.stringify(message);
     this.client.publish(message.topic, m, { qos: message.QoS, retain: message.retain }, err => {
-      if (err !== undefined) {
+      if (err) {
         logger.Error(err);
       }
     });
@@ -107,6 +107,10 @@ export class MqttConnection implements IPublisher, IDisposable {
 
   async dispose(): Promise<void> {
     // this.client.end()
+    if (this.client === undefined) {
+      return;
+    }
+    
     const end = new Promise((resolve, reject) => {
       this.client.end(false, () => {
         resolve();
