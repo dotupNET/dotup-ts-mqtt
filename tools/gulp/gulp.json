@@ -1,7 +1,7 @@
 {
   "build": true,
-  "docs": false,
-  "mocha": false,
+  "docs": true,
+  "mocha": true,
   "tslint": true,
   "watch": false,
   "yogen": false,
