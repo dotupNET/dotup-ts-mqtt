@@ -1,12 +1,12 @@
-import { LoggerFactory } from 'dotup-ts-logger';
 import { IDisposable, KeyValuePair } from 'dotup-ts-types';
 import { connect, MqttClient, Packet } from 'mqtt';
 import { MessageCallback } from '../types';
 import { IMessage } from './IMessage';
 import { IPublisher } from './IPublisher';
 import { MqttTopicMatch } from './MqttTopicMatch';
+import { getLogger } from 'log4js';
 
-const logger = LoggerFactory.createLogger('MqttConnection');
+const logger = getLogger('MqttConnection');
 
 export class MqttConnection implements IPublisher, IDisposable {
 
@@ -17,7 +17,7 @@ export class MqttConnection implements IPublisher, IDisposable {
   constructor(deviceId: string) {
     this.clientId = `MotoBox-${deviceId}`;
     this.subscriber = [];
-    logger.Info(`Creating MqttConnection as '${this.clientId}'`, 'ctor');
+    logger.info(`Creating MqttConnection as '${this.clientId}'`, 'ctor');
   }
 
   isConnected(): boolean {
@@ -44,19 +44,19 @@ export class MqttConnection implements IPublisher, IDisposable {
     const connectionInfo = `hostname: ${this.client.options.hostname} | port: ${this.client.options.port} | protocol: ${this.client.options.protocol}`;
 
     this.client.on('offline', () => {
-      logger.Info(`Disconnected | ${connectionInfo}`);
+      logger.info(`Disconnected | ${connectionInfo}`);
     });
 
     this.client.on('error', (err) => {
-      logger.Error(err);
+      logger.error(err);
     });
 
     this.client.on('reconnect', () => {
-      logger.Info(`Reconnecting | ${connectionInfo}`);
+      logger.info(`Reconnecting | ${connectionInfo}`);
     });
 
     this.client.on('connect', () => {
-      logger.Info(`Connected | ${connectionInfo}`);
+      logger.info(`Connected | ${connectionInfo}`);
     });
 
     this.client.on('message', (topic: string, payload: Buffer, packet: Packet) => {
@@ -71,7 +71,7 @@ export class MqttConnection implements IPublisher, IDisposable {
         }
       } catch (error) {
         // tslint:disable-next-line: no-unsafe-any
-        logger.Error(error);
+        logger.error(error);
       }
     });
 
@@ -84,7 +84,7 @@ export class MqttConnection implements IPublisher, IDisposable {
     const m = JSON.stringify(message);
     this.client.publish(message.topic, m, { qos: message.QoS, retain: message.retain }, err => {
       if (err) {
-        logger.Error(err);
+        logger.error(err);
       }
     });
   }
@@ -94,7 +94,7 @@ export class MqttConnection implements IPublisher, IDisposable {
   subscribe(topic: string, callback: MessageCallback): void {
     this.client.subscribe(topic, undefined, err => {
       if (err !== null) {
-        logger.Error(err);
+        logger.error(err);
       }
       const entry = this.subscriber.find(x => x.key === topic);
       if (entry === undefined) {

@@ -1,4 +1,3 @@
-import { ConsoleLogWriter, LoggerManager, LogLevel } from 'dotup-ts-logger';
 import { MqttConnection } from './Mqtt/MqttConnection';
 import { QosType } from './Mqtt/QosType';
 import { getHostname } from './tools';
@@ -10,17 +9,6 @@ export class Sample {
   async run(): Promise<void> {
 
     // Initialize logger
-    const conso = new ConsoleLogWriter();
-    // tslint:disable-next-line: no-bitwise
-    conso.LogLevel = LogLevel.Debug |
-      LogLevel.Info |
-      LogLevel.Warn |
-      LogLevel.Error |
-      LogLevel.Fatal;
-
-    const lm = new LoggerManager();
-    lm.AttachLogWriter(conso);
-
     this.mqtt = new MqttConnection(getHostname());
     this.mqtt.connect('dotup-pi003');
 
