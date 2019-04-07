@@ -9,8 +9,11 @@ export class Sample {
   async run(): Promise<void> {
 
     // Initialize logger
-    this.mqtt = new MqttConnection(getHostname());
-    this.mqtt.connect('dotup-pi003');
+    this.mqtt = new MqttConnection();
+    this.mqtt.connect({
+      hostname: 'dotup-pi003',
+      clientId: `dotup-ts-mqtt-${getHostname()}`
+    });
 
     this.mqtt.subscribe('test', (topic, message) => {
       console.log(`topic: ${topic}| message: ${message}`);

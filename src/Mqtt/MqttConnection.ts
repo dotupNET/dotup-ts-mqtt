@@ -5,19 +5,17 @@ import { IMessage } from './IMessage';
 import { IPublisher } from './IPublisher';
 import { MqttTopicMatch } from './MqttTopicMatch';
 import { getLogger } from 'log4js';
+import { MqttConnectionOptions } from './MqttConnectionOptions';
 
 const logger = getLogger('MqttConnection');
 
 export class MqttConnection implements IPublisher, IDisposable {
 
   private client: MqttClient;
-  readonly clientId: string;
   readonly subscriber: KeyValuePair<string, ((topic: string, message: string) => void)[]>[];
 
-  constructor(deviceId: string) {
-    this.clientId = `MotoBox-${deviceId}`;
+  constructor() {
     this.subscriber = [];
-    logger.info(`Creating MqttConnection as '${this.clientId}'`, 'ctor');
   }
 
   isConnected(): boolean {
@@ -28,20 +26,24 @@ export class MqttConnection implements IPublisher, IDisposable {
     return this.client.connected;
   }
 
-  connect(host: string): void {
+  connect(options: MqttConnectionOptions): void {
+
+    const connectionInfo = `hostname: ${options.hostname} | port: ${options.port} | protocol: ${options.protocol}`;
+
+    logger.info(`Connecting to '${connectionInfo}'`);
+
     this.client = connect(undefined, {
-      host: host,
-      hostname: host,
-      port: 1883,
-      protocol: 'ws',
-      clientId: this.clientId,
-      connectTimeout: 5000,
-      keepalive: 10,
-      reconnectPeriod: 5000
+      host: options.hostname,
+      hostname: options.hostname,
+      port: options.port,
+      protocol: options.protocol,
+      clientId: options.clientId,
+      connectTimeout: options.connectTimeoutMs,
+      keepalive: options.keepaliveSec,
+      reconnectPeriod: options.reconnectPeriodMs
     });
 
     // tslint:disable-next-line: max-line-length
-    const connectionInfo = `hostname: ${this.client.options.hostname} | port: ${this.client.options.port} | protocol: ${this.client.options.protocol}`;
 
     this.client.on('offline', () => {
       logger.info(`Disconnected | ${connectionInfo}`);
@@ -105,12 +107,30 @@ export class MqttConnection implements IPublisher, IDisposable {
     });
   }
 
+  unsubscribe(topic: string, callback: MessageCallback): void {
+    const topicSubscriber = this.subscriber.find(x => x.key === topic);
+    if (topicSubscriber === undefined) {
+      logger.warn(`Could not unsubscribe. Topic '${topic}' not found.`);
+      return;
+    }
+    const topicCallback = topicSubscriber.value.findIndex(x => x === callback);
+    if (topicCallback < 0) {
+      logger.warn(`Could not unsubscribe topic '${topic}'. Callback not found.`);
+      return;
+    }
+    topicSubscriber.value = topicSubscriber.value.splice(topicCallback, 1);
+
+    if (topicSubscriber.value.length < 1) {
+      this.client.unsubscribe(topic);
+    }
+  }
+
   async dispose(): Promise<void> {
     // this.client.end()
     if (this.client === undefined) {
       return;
     }
-    
+
     const end = new Promise((resolve, reject) => {
       this.client.end(false, () => {
         resolve();
