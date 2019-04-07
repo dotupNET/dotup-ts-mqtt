@@ -95,7 +95,6 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mqttconnection.html#client" class="tsd-kind-icon">client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqttconnection.html#clientid" class="tsd-kind-icon">client<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqttconnection.html#subscriber" class="tsd-kind-icon">subscriber</a></li>
 							</ul>
 						</section>
@@ -107,6 +106,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttconnection.html#isconnected" class="tsd-kind-icon">is<wbr>Connected</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="mqttconnection.html#publish" class="tsd-kind-icon">publish</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttconnection.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttconnection.html#unsubscribe" class="tsd-kind-icon">unsubscribe</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,21 +118,15 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Mqtt<wbr>Connection<span class="tsd-signature-symbol">(</span>deviceId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mqttconnection.html" class="tsd-signature-type">MqttConnection</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Mqtt<wbr>Connection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mqttconnection.html" class="tsd-signature-type">MqttConnection</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L15">Mqtt/MqttConnection.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L15">Mqtt/MqttConnection.ts:15</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>deviceId: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="mqttconnection.html" class="tsd-signature-type">MqttConnection</a></h4>
 						</li>
 					</ul>
@@ -146,17 +140,7 @@
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MqttClient</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L13">Mqtt/MqttConnection.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="clientid" class="tsd-anchor"></a>
-					<h3>client<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">client<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L14">Mqtt/MqttConnection.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L14">Mqtt/MqttConnection.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +150,7 @@
 					<div class="tsd-signature tsd-kind-icon">subscriber<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">KeyValuePair</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L15">Mqtt/MqttConnection.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L15">Mqtt/MqttConnection.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,19 +161,19 @@
 					<a name="connect" class="tsd-anchor"></a>
 					<h3>connect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span>host<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="mqttconnectionoptions.html" class="tsd-signature-type">MqttConnectionOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L31">Mqtt/MqttConnection.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L29">Mqtt/MqttConnection.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>host: <span class="tsd-signature-type">string</span></h5>
+									<h5>options: <a href="mqttconnectionoptions.html" class="tsd-signature-type">MqttConnectionOptions</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -206,7 +190,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L108">Mqtt/MqttConnection.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L128">Mqtt/MqttConnection.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -224,7 +208,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ipublisher.html">IPublisher</a>.<a href="../interfaces/ipublisher.html#isconnected">isConnected</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L23">Mqtt/MqttConnection.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L21">Mqtt/MqttConnection.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -242,7 +226,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ipublisher.html">IPublisher</a>.<a href="../interfaces/ipublisher.html#publish">publish</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L80">Mqtt/MqttConnection.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L82">Mqtt/MqttConnection.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -271,7 +255,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/101801d/src/Mqtt/MqttConnection.ts#L94">Mqtt/MqttConnection.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L96">Mqtt/MqttConnection.ts:96</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>topic: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>callback: <a href="../globals.html#messagecallback" class="tsd-signature-type">MessageCallback</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="unsubscribe" class="tsd-anchor"></a>
+					<h3>unsubscribe</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">unsubscribe<span class="tsd-signature-symbol">(</span>topic<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#messagecallback" class="tsd-signature-type">MessageCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c136350/src/Mqtt/MqttConnection.ts#L110">Mqtt/MqttConnection.ts:110</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -317,9 +327,6 @@
 								<a href="mqttconnection.html#client" class="tsd-kind-icon">client</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="mqttconnection.html#clientid" class="tsd-kind-icon">client<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="mqttconnection.html#subscriber" class="tsd-kind-icon">subscriber</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -337,10 +344,16 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mqttconnection.html#subscribe" class="tsd-kind-icon">subscribe</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mqttconnection.html#unsubscribe" class="tsd-kind-icon">unsubscribe</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="mqttconnectionoptions.html" class="tsd-kind-icon">Mqtt<wbr>Connection<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="sample.html" class="tsd-kind-icon">Sample</a>
 					</li>
