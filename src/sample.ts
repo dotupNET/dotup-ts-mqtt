@@ -11,7 +11,9 @@ export class Sample {
     // Initialize logger
     this.mqtt = new MqttConnection();
     this.mqtt.connect({
-      hostname: 'dotup-pi003',
+      hostname: 'dotup-vpi1101',
+      protocol:'ws',
+      port:1883,
       clientId: `dotup-ts-mqtt-${getHostname()}`
     });
 
