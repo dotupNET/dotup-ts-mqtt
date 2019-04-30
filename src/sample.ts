@@ -21,11 +21,11 @@ export class Sample {
       console.log(`topic: ${topic}| message: ${message}`);
     });
 
-    this.mqtt.publish({
+    this.mqtt.publish<string>({
       topic: 'test',
-      data: 'Some payload',
+      message: 'Some payload',
+      // messageId: '1',
       QoS: QosType.AtMostOnce,
-      messageId: '1',
       retain: false
     });
 

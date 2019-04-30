@@ -1,11 +1,11 @@
 import { IDisposable, KeyValuePair } from 'dotup-ts-types';
 import { connect, MqttClient, Packet } from 'mqtt';
 import { MessageCallback } from '../types';
-import { IMessage } from './IMessage';
 import { IPublisher } from './IPublisher';
 import { MqttTopicMatch } from './MqttTopicMatch';
 import { getLogger } from 'log4js';
 import { MqttConnectionOptions } from './MqttConnectionOptions';
+import { IMqttMessage } from './IMqttMessage';
 
 const logger = getLogger('MqttConnection');
 
@@ -79,11 +79,11 @@ export class MqttConnection implements IPublisher, IDisposable {
 
   }
 
-  publish<T>(message: IMessage<T>): void {
+  publish<T>(message: IMqttMessage<T>): void {
     // if (this.client === undefined) {
     //   return;
     // }
-    const m = JSON.stringify(message);
+    const m = JSON.stringify(message.message);
     this.client.publish(message.topic, m, { qos: message.QoS, retain: message.retain }, err => {
       if (err) {
         logger.error(err);

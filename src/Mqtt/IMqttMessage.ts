@@ -4,7 +4,10 @@
 */
 import { QosType } from './QosType';
 
-export interface IMessage {
-  messageId: string;
-  timestamp: string;
+export interface IMqttMessage<T> {
+  QoS: QosType;
+  retain: boolean;
+  topic: string;
+  message: T;
+  // getData<T>(): T;
 }

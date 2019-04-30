@@ -4,13 +4,13 @@
 */
 import { IDisposable } from 'dotup-ts-types';
 import { MessageCallback } from '../types';
-import { IMessage } from './IMessage';
+import { IMqttMessage } from './IMqttMessage';
 
 export interface IMqttConnection extends IDisposable {
-    readonly clientId: string;
-    readonly subscriber: {};
-    isConnected(): boolean;
-    connect(host: string): void;
-    publish<T>(message: IMessage<T>): void;
-    subscribe(topic: string, callback: MessageCallback): void;
+  readonly clientId: string;
+  readonly subscriber: {};
+  isConnected(): boolean;
+  connect(host: string): void;
+  publish<T>(message: IMqttMessage<T>): void;
+  subscribe(topic: string, callback: MessageCallback): void;
 }
