@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Message | dotup-ts-mqtt</title>
+	<title>IMqttMessage | dotup-ts-mqtt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="message.html">Message</a>
+					<a href="imqttmessage.html">IMqttMessage</a>
 				</li>
 			</ul>
-			<h1>Class Message&lt;T&gt;</h1>
+			<h1>Interface IMqttMessage&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -78,14 +78,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Message</span>
+						<span class="target">IMqttMessage</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
-				<h3>Implements</h3>
+				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/imessage.html" class="tsd-signature-type">IMessage</a></li>
+					<li><a href="../classes/mqttmessage.html" class="tsd-signature-type">MqttMessage</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -93,62 +93,56 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="message.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="message.html#messageid" class="tsd-kind-icon">message<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="message.html#timestamp" class="tsd-kind-icon">timestamp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#qos" class="tsd-kind-icon">QoS</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#retain" class="tsd-kind-icon">retain</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#topic" class="tsd-kind-icon">topic</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Message<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="message.html" class="tsd-signature-type">Message</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/Message.ts#L7">Mqtt/Message.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="message.html" class="tsd-signature-type">Message</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="messageid" class="tsd-anchor"></a>
-					<h3>message<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">message<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="qos" class="tsd-anchor"></a>
+					<h3>QoS</h3>
+					<div class="tsd-signature tsd-kind-icon">QoS<span class="tsd-signature-symbol">:</span> <a href="../enums/qostype.html" class="tsd-signature-type">QosType</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/imessage.html">IMessage</a>.<a href="../interfaces/imessage.html#messageid">messageId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/Message.ts#L6">Mqtt/Message.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/IMqttMessage.ts#L8">Mqtt/IMqttMessage.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="timestamp" class="tsd-anchor"></a>
-					<h3>timestamp</h3>
-					<div class="tsd-signature tsd-kind-icon">timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="message" class="tsd-anchor"></a>
+					<h3>message</h3>
+					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/imessage.html">IMessage</a>.<a href="../interfaces/imessage.html#timestamp">timestamp</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/Message.ts#L7">Mqtt/Message.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/IMqttMessage.ts#L11">Mqtt/IMqttMessage.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="retain" class="tsd-anchor"></a>
+					<h3>retain</h3>
+					<div class="tsd-signature tsd-kind-icon">retain<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/IMqttMessage.ts#L9">Mqtt/IMqttMessage.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="topic" class="tsd-anchor"></a>
+					<h3>topic</h3>
+					<div class="tsd-signature tsd-kind-icon">topic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/ce7c560/src/Mqtt/IMqttMessage.ts#L10">Mqtt/IMqttMessage.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,50 +161,53 @@
 					<li class=" tsd-kind-enum">
 						<a href="../enums/qostype.html" class="tsd-kind-icon">Qos<wbr>Type</a>
 					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/message.html" class="tsd-kind-icon">Message</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mqttconnection.html" class="tsd-kind-icon">Mqtt<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mqttconnectionoptions.html" class="tsd-kind-icon">Mqtt<wbr>Connection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/mqttmessage.html" class="tsd-kind-icon">Mqtt<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mqttsendqueue.html" class="tsd-kind-icon">Mqtt<wbr>Send<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/sample.html" class="tsd-kind-icon">Sample</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="imessage.html" class="tsd-kind-icon">IMessage</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="imqttconnection.html" class="tsd-kind-icon">IMqtt<wbr>Connection</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-has-type-parameter">
-						<a href="message.html" class="tsd-kind-icon">Message</a>
+					<li class="current tsd-kind-interface tsd-has-type-parameter">
+						<a href="imqttmessage.html" class="tsd-kind-icon">IMqtt<wbr>Message</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="message.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="imqttmessage.html#qos" class="tsd-kind-icon">QoS</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="message.html#messageid" class="tsd-kind-icon">message<wbr>Id</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="imqttmessage.html#message" class="tsd-kind-icon">message</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="message.html#timestamp" class="tsd-kind-icon">timestamp</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="imqttmessage.html#retain" class="tsd-kind-icon">retain</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="imqttmessage.html#topic" class="tsd-kind-icon">topic</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="mqttconnection.html" class="tsd-kind-icon">Mqtt<wbr>Connection</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="mqttconnectionoptions.html" class="tsd-kind-icon">Mqtt<wbr>Connection<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="mqttmessage.html" class="tsd-kind-icon">Mqtt<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="mqttsendqueue.html" class="tsd-kind-icon">Mqtt<wbr>Send<wbr>Queue</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sample.html" class="tsd-kind-icon">Sample</a>
-					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/imessage.html" class="tsd-kind-icon">IMessage</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/imqttconnection.html" class="tsd-kind-icon">IMqtt<wbr>Connection</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/imqttmessage.html" class="tsd-kind-icon">IMqtt<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/ipublisher.html" class="tsd-kind-icon">IPublisher</a>
+						<a href="ipublisher.html" class="tsd-kind-icon">IPublisher</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#messagecallback" class="tsd-kind-icon">Message<wbr>Callback</a>
