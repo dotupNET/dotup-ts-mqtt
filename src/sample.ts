@@ -12,12 +12,12 @@ export class Sample {
     this.mqtt = new MqttConnection();
     this.mqtt.connect({
       hostname: 'dotup-vpi1101',
-      protocol:'ws',
-      port:1883,
+      protocol: 'ws',
+      port: 1883,
       clientId: `dotup-ts-mqtt-${getHostname()}`
     });
 
-    this.mqtt.subscribe('test', (topic, message) => {
+    this.mqtt.subscribe('#', (topic, message) => {
       console.log(`topic: ${topic}| message: ${message}`);
     });
 
