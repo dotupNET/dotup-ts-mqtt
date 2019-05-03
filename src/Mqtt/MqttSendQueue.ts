@@ -34,7 +34,7 @@ export class MqttSendQueue {
             this.queue.splice(index, 1);
           }
         } catch (error) {
-          console.log(error);
+          logger.error(error);
         }
       });
 
