@@ -17,7 +17,7 @@ export class Sample {
       clientId: `dotup-ts-mqtt-${getHostname()}`
     });
 
-    this.mqtt.subscribe('#', (topic, message) => {
+    this.mqtt.subscribe('request/#', (topic, message) => {
       console.log(`topic: ${topic}| message: ${message}`);
     });
 

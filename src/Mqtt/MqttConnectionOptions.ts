@@ -6,5 +6,9 @@ export class MqttConnectionOptions {
   connectTimeoutMs?: number = 5000;
   keepaliveSec?: number = 10;
   reconnectPeriodMs?: number = 5000;
+  clean?: boolean = false;
+  resubscribe?: boolean = true;
+  username?: string;
+  password?: string;
 
 }

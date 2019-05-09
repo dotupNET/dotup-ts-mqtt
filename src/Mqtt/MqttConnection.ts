@@ -40,10 +40,12 @@ export class MqttConnection implements IPublisher, IDisposable {
       clientId: options.clientId,
       connectTimeout: options.connectTimeoutMs,
       keepalive: options.keepaliveSec,
-      reconnectPeriod: options.reconnectPeriodMs
+      reconnectPeriod: options.reconnectPeriodMs,
+      clean: options.clean,
+      resubscribe: options.resubscribe,
+      username: options.username,
+      password: options.password
     });
-
-    // tslint:disable-next-line: max-line-length
 
     this.client.on('offline', () => {
       logger.info(`Disconnected | ${connectionInfo}`);
@@ -94,15 +96,17 @@ export class MqttConnection implements IPublisher, IDisposable {
   // public subscribe(topic: string | string[], opts: IClientSubscribeOptions, callback?: ClientSubscribeCallback): this;
   // public subscribe(topic: string | string[] | ISubscriptionMap, callback?: ClientSubscribeCallback): this;
   subscribe(topic: string, callback: MessageCallback): void {
+    const entry = this.subscriber.find(x => x.key === topic);
+    if (entry === undefined) {
+      this.subscriber.push({ key: topic, value: [callback] });
+    } else {
+      entry.value.push(callback);
+    }
+
     this.client.subscribe(topic, undefined, err => {
       if (err !== null) {
         logger.error(err);
-      }
-      const entry = this.subscriber.find(x => x.key === topic);
-      if (entry === undefined) {
-        this.subscriber.push({ key: topic, value: [callback] });
-      } else {
-        entry.value.push(callback);
+        this.unsubscribe(topic, callback);
       }
     });
   }

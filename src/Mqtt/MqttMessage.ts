@@ -1,5 +1,3 @@
-import { v1 } from 'node-uuid';
-import { IMessage } from './IMessage';
 import { QosType } from './QosType';
 import { IMqttMessage } from './IMqttMessage';
 
