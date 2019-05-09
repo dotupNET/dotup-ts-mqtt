@@ -1,6 +1,5 @@
-import { v1 } from 'node-uuid';
+import { v1 } from 'uuid';
 import { IMessage } from './IMessage';
-import { QosType } from './QosType';
 
 export abstract class Message<T> implements IMessage {
   messageId: string;
