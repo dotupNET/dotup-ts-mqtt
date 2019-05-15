@@ -17,6 +17,10 @@ export class MqttSendQueue {
     this.mqtt = mqtt;
   }
 
+  getSendQueueSize(): number {
+    return this.queue.length;
+  }
+
   start(): void {
     if (this.timer !== undefined) {
       return;
@@ -44,6 +48,7 @@ export class MqttSendQueue {
   stop(): void {
     if (this.timer !== undefined) {
       clearInterval(this.timer);
+      this.timer = undefined;
       logger.info('MqttSendQueue stopped');
     }
   }
