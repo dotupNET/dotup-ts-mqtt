@@ -99,6 +99,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#message" class="tsd-kind-icon">message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#retain" class="tsd-kind-icon">retain</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#topic" class="tsd-kind-icon">topic</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#transferstate" class="tsd-kind-icon">transfer<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imqttmessage.html#transfertimestamp" class="tsd-kind-icon">transfer<wbr>Timestamp</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,7 +114,7 @@
 					<div class="tsd-signature tsd-kind-icon">QoS<span class="tsd-signature-symbol">:</span> <a href="../enums/qostype.html" class="tsd-signature-type">QosType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/b9231b3/src/Mqtt/IMqttMessage.ts#L8">Mqtt/IMqttMessage.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/IMqttMessage.ts#L9">Mqtt/IMqttMessage.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -122,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/b9231b3/src/Mqtt/IMqttMessage.ts#L11">Mqtt/IMqttMessage.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/IMqttMessage.ts#L12">Mqtt/IMqttMessage.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -132,7 +134,7 @@
 					<div class="tsd-signature tsd-kind-icon">retain<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/b9231b3/src/Mqtt/IMqttMessage.ts#L9">Mqtt/IMqttMessage.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/IMqttMessage.ts#L10">Mqtt/IMqttMessage.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -142,7 +144,27 @@
 					<div class="tsd-signature tsd-kind-icon">topic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/b9231b3/src/Mqtt/IMqttMessage.ts#L10">Mqtt/IMqttMessage.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/IMqttMessage.ts#L11">Mqtt/IMqttMessage.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="transferstate" class="tsd-anchor"></a>
+					<h3>transfer<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">transfer<wbr>State<span class="tsd-signature-symbol">:</span> <a href="../enums/transferstate.html" class="tsd-signature-type">TransferState</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/IMqttMessage.ts#L13">Mqtt/IMqttMessage.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="transfertimestamp" class="tsd-anchor"></a>
+					<h3>transfer<wbr>Timestamp</h3>
+					<div class="tsd-signature tsd-kind-icon">transfer<wbr>Timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/IMqttMessage.ts#L15">Mqtt/IMqttMessage.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,6 +182,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
 						<a href="../enums/qostype.html" class="tsd-kind-icon">Qos<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/transferstate.html" class="tsd-kind-icon">Transfer<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="../classes/message.html" class="tsd-kind-icon">Message</a>
@@ -201,6 +226,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="imqttmessage.html#topic" class="tsd-kind-icon">topic</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="imqttmessage.html#transferstate" class="tsd-kind-icon">transfer<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="imqttmessage.html#transfertimestamp" class="tsd-kind-icon">transfer<wbr>Timestamp</a>
 							</li>
 						</ul>
 					</li>

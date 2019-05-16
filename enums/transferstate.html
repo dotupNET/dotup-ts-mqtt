@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MqttTopicMatch | dotup-ts-mqtt</title>
+	<title>TransferState | dotup-ts-mqtt</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="mqtttopicmatch.html">MqttTopicMatch</a>
+					<a href="transferstate.html">TransferState</a>
 				</li>
 			</ul>
-			<h1>Module MqttTopicMatch</h1>
+			<h1>Enumeration TransferState</h1>
 		</div>
 	</div>
 </header>
@@ -71,41 +71,47 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="mqtttopicmatch.html#matches" class="tsd-kind-icon">matches</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="transferstate.html#acknowledged" class="tsd-kind-icon">Acknowledged</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="transferstate.html#new" class="tsd-kind-icon">New</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="transferstate.html#transfered" class="tsd-kind-icon">Transfered</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="matches" class="tsd-anchor"></a>
-					<h3>matches</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">matches<span class="tsd-signature-symbol">(</span>topic<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/MqttTopicMatch.ts#L3">Mqtt/MqttTopicMatch.ts:3</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>topic: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>filter: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="acknowledged" class="tsd-anchor"></a>
+					<h3>Acknowledged</h3>
+					<div class="tsd-signature tsd-kind-icon">Acknowledged<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/TransferState.ts#L4">Mqtt/TransferState.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="new" class="tsd-anchor"></a>
+					<h3>New</h3>
+					<div class="tsd-signature tsd-kind-icon">New<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/TransferState.ts#L2">Mqtt/TransferState.ts:2</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="transfered" class="tsd-anchor"></a>
+					<h3>Transfered</h3>
+					<div class="tsd-signature tsd-kind-icon">Transfered<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/2207bf4/src/Mqtt/TransferState.ts#L3">Mqtt/TransferState.ts:3</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -115,15 +121,72 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module">
-						<a href="mqtttopicmatch.html">Mqtt<wbr>Topic<wbr>Match</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="mqtttopicmatch.html#matches" class="tsd-kind-icon">matches</a>
+					<li class=" tsd-kind-enum">
+						<a href="qostype.html" class="tsd-kind-icon">Qos<wbr>Type</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-enum">
+						<a href="transferstate.html" class="tsd-kind-icon">Transfer<wbr>State</a>
+						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="transferstate.html#acknowledged" class="tsd-kind-icon">Acknowledged</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="transferstate.html#new" class="tsd-kind-icon">New</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="transferstate.html#transfered" class="tsd-kind-icon">Transfered</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/message.html" class="tsd-kind-icon">Message</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mqttconnection.html" class="tsd-kind-icon">Mqtt<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mqttconnectionoptions.html" class="tsd-kind-icon">Mqtt<wbr>Connection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/mqttmessage.html" class="tsd-kind-icon">Mqtt<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mqttsendqueue.html" class="tsd-kind-icon">Mqtt<wbr>Send<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/sample.html" class="tsd-kind-icon">Sample</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/imessage.html" class="tsd-kind-icon">IMessage</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/imqttconnection.html" class="tsd-kind-icon">IMqtt<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="../interfaces/imqttmessage.html" class="tsd-kind-icon">IMqtt<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ipublisher.html" class="tsd-kind-icon">IPublisher</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#messagecallback" class="tsd-kind-icon">Message<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#logger" class="tsd-kind-icon">logger</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#sample" class="tsd-kind-icon">sample</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#gethostname" class="tsd-kind-icon">get<wbr>Hostname</a>
 					</li>
 				</ul>
 			</nav>
