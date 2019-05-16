@@ -5,6 +5,6 @@
 import { QosType } from './QosType';
 
 export interface IMessage {
-  messageId: string;
+  id: string;
   timestamp: string;
 }

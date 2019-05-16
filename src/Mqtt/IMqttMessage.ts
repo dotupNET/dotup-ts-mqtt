@@ -3,11 +3,14 @@
  * Date: 2019-04-01 21:52:39
 */
 import { QosType } from './QosType';
+import { TransferState } from './TransferState';
 
 export interface IMqttMessage<T> {
   QoS: QosType;
   retain: boolean;
   topic: string;
   message: T;
+  transferState: TransferState;
   // getData<T>(): T;
+  transferTimestamp: Date;
 }

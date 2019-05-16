@@ -2,6 +2,7 @@ import { MqttConnection } from './MqttConnection';
 import { IMessage } from './IMessage';
 import { getLogger } from 'log4js';
 import { IMqttMessage } from './IMqttMessage';
+import { TransferState } from './TransferState';
 
 const logger = getLogger('MqttConnection');
 
@@ -29,20 +30,37 @@ export class MqttSendQueue {
     logger.info('MqttSendQueue started');
 
     this.timer = setInterval(() => {
-      const copy = this.queue.slice();
-      copy.forEach(x => {
-        try {
-          if (this.mqtt.isConnected) {
-            this.mqtt.publish<any>(x);
-            const index = this.queue.indexOf(x);
-            this.queue.splice(index, 1);
-          }
-        } catch (error) {
-          logger.error(error);
-        }
-      });
-
+      this.sendMessages();
+      this.resendMessages();
     }, this.interval);
+  }
+
+  private resendMessages() {
+    const now = new Date(new Date().toUTCString());
+
+    this.queue.forEach(item => {
+      const diff = now.getTime() - item.transferTimestamp.getTime();
+      if (diff > 5000) {
+        item.transferState = TransferState.New;
+      }
+    });
+  }
+
+  private sendMessages() {
+    const copy = this.queue.filter(item => item.transferState === TransferState.New);
+    copy.forEach(x => {
+      try {
+        if (this.mqtt.isConnected) {
+          this.mqtt.publish<any>(x);
+          // const index = this.queue.indexOf(x);
+          x.transferState = TransferState.Transfered;
+          x.transferTimestamp = new Date(new Date().toUTCString());
+          // this.queue.splice(index, 1);
+        }
+      } catch (error) {
+        logger.error(error);
+      }
+    });
   }
 
   stop(): void {
@@ -55,6 +73,17 @@ export class MqttSendQueue {
 
   add<T>(item: IMqttMessage<T>) {
     this.queue.push(item);
+  }
+
+  remove(ids: string[]) {
+    const index = ids.map(id => this.queue.findIndex(item => (<IMessage>item.message).id === id));
+
+    index.forEach(i => {
+      if (i > -1) {
+        this.queue.splice(i, 1);
+      }
+    });
+
   }
 
 }
