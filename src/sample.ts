@@ -1,6 +1,7 @@
 import { MqttConnection } from './Mqtt/MqttConnection';
 import { QosType } from './Mqtt/QosType';
 import { getHostname } from './tools';
+import { TransferState } from './Mqtt/TransferState';
 
 export class Sample {
 
@@ -26,7 +27,9 @@ export class Sample {
       message: 'Some payload',
       // messageId: '1',
       QoS: QosType.AtMostOnce,
-      retain: false
+      retain: false,
+      transferState: TransferState.New,
+      transferTimestamp: new Date(new Date().toUTCString())
     });
 
   }
