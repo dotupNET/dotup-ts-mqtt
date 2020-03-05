@@ -1,19 +1,19 @@
-import { MqttConnection } from './MqttConnection';
-import { IMessage } from './IMessage';
-import { getLogger } from 'log4js';
-import { IMqttMessage } from './IMqttMessage';
-import { TransferState } from './TransferState';
+import { MqttConnection } from "./MqttConnection";
+import { IMessage } from "./IMessage";
+import { getLogger } from "log4js";
+import { IMqttMessage } from "./IMqttMessage";
+import { TransferState } from "./TransferState";
 
-const logger = getLogger('MqttConnection');
+const logger = getLogger("MqttConnection");
 
 export class MqttSendQueue {
   private readonly mqtt: MqttConnection;
-  private queue: IMqttMessage<any>[] = [];
+  private queue: IMqttMessage<unknown>[] = [];
   private timer: NodeJS.Timeout;
   private interval: number;
 
   constructor(mqtt: MqttConnection, sendInterval: number = 500) {
-    logger.info('Creating MqttSendQueue');
+    logger.info("Creating MqttSendQueue");
     this.interval = sendInterval;
     this.mqtt = mqtt;
   }
@@ -27,7 +27,7 @@ export class MqttSendQueue {
       return;
     }
 
-    logger.info('MqttSendQueue started');
+    logger.info("MqttSendQueue started");
 
     this.timer = setInterval(() => {
       this.sendMessages();
@@ -67,7 +67,7 @@ export class MqttSendQueue {
     if (this.timer !== undefined) {
       clearInterval(this.timer);
       this.timer = undefined;
-      logger.info('MqttSendQueue stopped');
+      logger.info("MqttSendQueue stopped");
     }
   }
 
@@ -76,7 +76,7 @@ export class MqttSendQueue {
   }
 
   remove(ids: string[]) {
-    const index = ids.map(id => this.queue.findIndex(item => (<IMessage>item.message).id === id));
+    const index = ids.map(id => this.queue.findIndex(item => (item.message as IMessage).id === id));
 
     index.forEach(i => {
       if (i > -1) {

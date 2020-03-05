@@ -1,58 +1,58 @@
 
-import { MqttTopicMatch } from '../src/Mqtt/MqttTopicMatch';
-import { expect } from 'chai';
+import { MqttTopicMatch } from "../src/Mqtt/MqttTopicMatch";
+import { expect } from "chai";
 
-describe('AwesomeLibrary', () => {
+describe("AwesomeLibrary", () => {
 
-  it('should be false', () => {
+  it("should be false", () => {
 
-    let topic = 'request/device1/racegroup';
+    let topic = "request/device1/racegroup";
 
-    let filter = 'request/+/lamptest';
+    let filter = "request/+/lamptest";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.false;
 
-    filter = 'request/device/racegroup';
+    filter = "request/device/racegroup";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.false;
 
-    filter = 'request';
+    filter = "request";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.false;    
 
-    topic = 'request/racegroup';
+    topic = "request/racegroup";
 
-    filter = 'request/+/lamptest';
+    filter = "request/+/lamptest";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.false;    
 
-    filter = 'request/+/racegroup';
+    filter = "request/+/racegroup";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.false;    
 
-    filter = 'request';
+    filter = "request";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.false;    
 
   });
 
-  it('should be true', () => {
-    let topic = 'request/device1/racegroup';
+  it("should be true", () => {
+    let topic = "request/device1/racegroup";
     
-    let filter = 'request/+/racegroup';
+    let filter = "request/+/racegroup";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;
 
-    filter = 'request/device1/racegroup';
+    filter = "request/device1/racegroup";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;
 
-    filter = 'request/#';
+    filter = "request/#";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;    
 
-    filter = '#';
+    filter = "#";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;    
 
-    topic = 'request/racegroup';
-    filter = 'request/racegroup';
+    topic = "request/racegroup";
+    filter = "request/racegroup";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;    
 
-    filter = 'request/#';
+    filter = "request/#";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;    
 
-    filter = '#';
+    filter = "#";
     expect(MqttTopicMatch.matches(topic, filter)).to.be.true;    
 
   });

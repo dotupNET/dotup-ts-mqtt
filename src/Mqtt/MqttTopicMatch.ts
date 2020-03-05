@@ -1,26 +1,27 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 export namespace MqttTopicMatch {
 
   export function matches(topic: string, filter: string): boolean {
     if (topic === filter) {
       return true;
-    } else if (filter === '#') {
+    } else if (filter === "#") {
       return true;
-    } else if (filter === '+' || filter === '') {
+    } else if (filter === "+" || filter === "") {
       throw new Error(`Invalid filter: ${filter}`);
     }
 
     // Topic:  topic/dotup-pi001/status
     // Filter: topic/+/status
-    const t = topic.split('/');
-    const f = filter.split('/');
+    const t = topic.split("/");
+    const f = filter.split("/");
 
     for (let i = 0; i < t.length; i += 1) {
       const currentTopic = t[i];
-      const currentFilter = f.length > i ? f[i] : '';
+      const currentFilter = f.length > i ? f[i] : "";
 
-      if (currentFilter === '#') {
+      if (currentFilter === "#") {
         return true;
-      } else if (currentFilter === '+' && (t.length !== (i + 1))) {
+      } else if (currentFilter === "+" && (t.length !== (i + 1))) {
         continue;
       } else if (currentTopic !== currentFilter) {
         return false;

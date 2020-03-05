@@ -1,6 +1,7 @@
-import { connect, MqttClient, Packet, IClientPublishOptions, PacketCallback } from 'mqtt';
-import { MqttConnectionOptions } from './MqttConnectionOptions';
-import { getLogger } from 'log4js';
+/* eslint-disable @typescript-eslint/no-use-before-define */
+import { connect, MqttClient } from "mqtt";
+import { MqttConnectionOptions } from "./MqttConnectionOptions";
+import { getLogger } from "log4js";
 
 const logger = getLogger("MqttConnection");
 
@@ -24,7 +25,8 @@ export const connectAsync = async (options: Partial<MqttConnectionOptions>): Pro
 
   return new Promise((resolve, reject) => {
     // Listeners added to client to trigger promise resolution
-    const promiseListeners: any = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const promiseListeners: { [key: string]: (...arg: any) => void } = {
       connect: () => {
         logger.info("Promise connect");
         removePromiseResolutionListeners();

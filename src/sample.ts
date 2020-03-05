@@ -1,7 +1,7 @@
-import { MqttConnection } from './Mqtt/MqttConnection';
-import { QosType } from './Mqtt/QosType';
-import { getHostname } from './tools';
-import { TransferState } from './Mqtt/TransferState';
+import { MqttConnection } from "./Mqtt/MqttConnection";
+import { QosType } from "./Mqtt/QosType";
+import { getHostname } from "./tools";
+import { TransferState } from "./Mqtt/TransferState";
 
 export class Sample {
 
@@ -14,19 +14,19 @@ export class Sample {
     // Initialize logger
     this.mqtt = new MqttConnection();
     await this.mqtt.connect({
-      hostname: 'localhost',
-      protocol: 'ws',
+      hostname: "localhost",
+      protocol: "ws",
       port: 1883,
       clientId: `dotup-ts-mqtt-${getHostname()}`
     });
 
-    this.mqtt.subscribe('request/#', (topic, message) => {
+    this.mqtt.subscribe("request/#", (topic, message) => {
       console.log(`topic: ${topic}| message: ${message}`);
     });
 
     this.mqtt.publish<string>({
-      topic: 'test',
-      message: 'Some payload',
+      topic: "test",
+      message: "Some payload",
       // messageId: '1',
       QoS: QosType.AtMostOnce,
       retain: false,

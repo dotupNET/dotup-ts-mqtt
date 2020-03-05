@@ -1,5 +1,5 @@
-import { v1 } from 'uuid';
-import { IMessage } from './IMessage';
+import { v1 } from "uuid";
+import { IMessage } from "./IMessage";
 
 export abstract class Message<T> implements IMessage {
   id: string;
