@@ -23,6 +23,7 @@
     "rootDir": "src",
     "strict": false,
     "noImplicitAny": true,
+    "skipLibCheck": true,
     "strictNullChecks": false,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": false,
