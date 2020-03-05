@@ -1,18 +1,21 @@
-import { IDisposable, KeyValuePair } from 'dotup-ts-types';
-import { connect, MqttClient, Packet } from 'mqtt';
-import { MessageCallback } from '../types';
-import { IPublisher } from './IPublisher';
-import { MqttTopicMatch } from './MqttTopicMatch';
-import { getLogger } from 'log4js';
-import { MqttConnectionOptions } from './MqttConnectionOptions';
-import { IMqttMessage } from './IMqttMessage';
+import { IDisposable, KeyValuePair } from "dotup-ts-types";
+import { connect, MqttClient, Packet, PacketCallback } from "mqtt";
+import { MessageCallback } from "../types";
+import { IPublisher } from "./IPublisher";
+import { MqttTopicMatch } from "./MqttTopicMatch";
+import { getLogger } from "log4js";
+import { MqttConnectionOptions } from "./MqttConnectionOptions";
+import { IMqttMessage } from "./IMqttMessage";
+import { connectAsync } from "./AsyncClient";
 
-const logger = getLogger('MqttConnection');
+const logger = getLogger("MqttConnection");
+
+export declare type MqttSubscriber = KeyValuePair<string, ((topic: string, message: string) => void)[]>;
 
 export class MqttConnection implements IPublisher, IDisposable {
 
   private client: MqttClient;
-  readonly subscriber: KeyValuePair<string, ((topic: string, message: string) => void)[]>[];
+  readonly subscriber: MqttSubscriber[];
 
   constructor() {
     this.subscriber = [];
@@ -26,44 +29,36 @@ export class MqttConnection implements IPublisher, IDisposable {
     return this.client.connected;
   }
 
-  connect(options: MqttConnectionOptions): void {
+  async connect(options: Partial<MqttConnectionOptions>): Promise<void> {
 
     const connectionInfo = `hostname: ${options.hostname} | port: ${options.port} | protocol: ${options.protocol}`;
 
     logger.info(`Connecting to '${connectionInfo}'`);
 
-    this.client = connect(undefined, {
-      host: options.hostname,
-      hostname: options.hostname,
-      port: options.port,
-      protocol: options.protocol,
-      clientId: options.clientId,
-      connectTimeout: options.connectTimeoutMs,
-      keepalive: options.keepaliveSec,
-      reconnectPeriod: options.reconnectPeriodMs,
-      clean: options.clean,
-      resubscribe: options.resubscribe,
-      username: options.username,
-      password: options.password
-    });
+    this.client = await connectAsync(options);
 
-    this.client.on('offline', () => {
+    logger.info("Register MQTT 'offline' event");
+    this.client.on("offline", () => {
       logger.info(`Disconnected | ${connectionInfo}`);
     });
 
-    this.client.on('error', (err) => {
+    logger.info("Register MQTT 'error' event");
+    this.client.on("error", (err) => {
       logger.error(err);
     });
 
-    this.client.on('reconnect', () => {
+    logger.info("Register MQTT 'reconnect' event");
+    this.client.on("reconnect", () => {
       logger.info(`Reconnecting | ${connectionInfo}`);
     });
 
-    this.client.on('connect', () => {
+    logger.info("Register MQTT 'connect' event");
+    this.client.on("connect", () => {
       logger.info(`Connected | ${connectionInfo}`);
     });
 
-    this.client.on('message', (topic: string, payload: Buffer, packet: Packet) => {
+    logger.info("Register MQTT 'message' event");
+    this.client.on("message", (topic: string, payload: Buffer, packet: Packet) => {
       try {
         const topicSubscription = this.subscriber.filter(x => MqttTopicMatch.matches(topic, x.key));
         const message = payload.toString();
@@ -90,6 +85,19 @@ export class MqttConnection implements IPublisher, IDisposable {
       if (err) {
         logger.error(err);
       }
+    });
+  }
+
+  async publishAsync<T>(message: IMqttMessage<T>): Promise<void> {
+    const m = JSON.stringify(message.message);
+    return new Promise((resolve, reject) => {
+      this.client.publish(message.topic, m, { qos: message.QoS, retain: message.retain }, err => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
     });
   }
 

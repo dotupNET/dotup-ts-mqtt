@@ -9,10 +9,12 @@ export class Sample {
 
   async run(): Promise<void> {
 
+
+
     // Initialize logger
     this.mqtt = new MqttConnection();
-    this.mqtt.connect({
-      hostname: 'dotup-vpi1101',
+    await this.mqtt.connect({
+      hostname: 'localhost',
       protocol: 'ws',
       port: 1883,
       clientId: `dotup-ts-mqtt-${getHostname()}`

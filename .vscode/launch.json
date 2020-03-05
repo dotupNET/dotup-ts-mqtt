@@ -4,7 +4,6 @@
     {
       "type": "node",
       "request": "launch",
-      "envFile": "${workspaceFolder}/.env",
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/sample.ts",
       "outFiles": [
