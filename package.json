@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "release": "npm run gh-pages && npm run build-ts && npm run test && git push && npm publish",
+    "release": "npm run build-ts && npm run test && git push && npm publish",
     "release-esnext": "npm run gh-pages && npm run build-esnext && npm run test && git push && npm publish",
     "release-r": "npm run gh-pages && npm run build && npm run test && git push && npm publish",
     "postversion": "git push && git push --tags",
@@ -50,6 +50,7 @@
     "@types/uuid": "^3.4.4",
     "@types/shelljs": "^0.8.6",
     "@types/eslint": "^6.1.8",
+    "@types/node": "13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "eslint": "^6.8.0",
