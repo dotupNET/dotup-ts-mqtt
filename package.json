@@ -1,5 +1,5 @@
 {
-  "version": "2.0.1",
+  "version": "2.1.0",
   "name": "@dotup/dotup-ts-mqtt",
   "author": {
     "name": "Peter Ullrich",
@@ -47,31 +47,31 @@
     "commit-release": "git commit -a -m \"Release v%npm_package_version%\" && git push && git tag -a v%npm_package_version% -m \"Release v%npm_package_version%\" && git push origin --tags"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.7",
+    "@types/chai": "^4.2.10",
     "@types/eslint": "^6.1.8",
-    "@types/mocha": "^5.2.6",
+    "@types/mocha": "^7.0.2",
     "@types/node": "13.7.7",
     "@types/shelljs": "^0.8.6",
-    "@types/uuid": "^3.4.4",
-    "@typescript-eslint/eslint-plugin": "^2.20.0",
-    "@typescript-eslint/parser": "^2.20.0",
+    "@types/uuid": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
     "chai": "^4.2.0",
     "cross-spawn": "7.0.1",
-    "del": "^4.1.1",
+    "del": "^5.1.0",
     "dotup-ts-git-wrapper": "^1.0.0",
     "eslint": "^6.8.0",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.2.0",
     "gulp": "^4.0.2",
     "gulp-eslint": "6.0.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-mocha": "^6.0.0",
+    "gulp-mocha": "^7.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-typedoc": "^2.2.2",
+    "gulp-typedoc": "^2.2.4",
     "gulp-typescript": "^5.0.1",
-    "mocha": "^6.1.4",
-    "ts-node": "^8.1.0",
-    "typedoc": "^0.14.2",
-    "typescript": "^3.4.5"
+    "mocha": "^7.1.0",
+    "ts-node": "^8.6.2",
+    "typedoc": "^0.16.11",
+    "typescript": "^3.8.3"
   },
   "license": "AGPL-3.0-only",
   "publishConfig": {
@@ -86,9 +86,9 @@
   },
   "homepage": "https://github.com/dotupNET/dotup-ts-mqtt#readme",
   "dependencies": {
-    "dotup-ts-types": "^0.1.7",
-    "log4js": "^4.2.0",
-    "mqtt": "^2.18.8",
-    "uuid": "^3.3.2"
+    "@dotup/dotup-ts-types": "1.1.1",
+    "log4js": "^6.1.2",
+    "mqtt": "^3.0.0",
+    "uuid": "^7.0.2"
   }
 }

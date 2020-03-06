@@ -1,4 +1,4 @@
-import { IDisposable, KeyValuePair } from "dotup-ts-types";
+import { IDisposable, KeyValuePair } from "@dotup/dotup-ts-types";
 import { MqttClient, Packet, IClientSubscribeOptions } from "mqtt";
 import { MessageCallback } from "../types";
 import { IPublisher } from "./IPublisher";
