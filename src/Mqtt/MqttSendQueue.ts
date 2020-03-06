@@ -9,7 +9,7 @@ const logger = getLogger("MqttConnection");
 export class MqttSendQueue {
   private readonly mqtt: MqttConnection;
   private queue: IMqttMessage<unknown>[] = [];
-  private timer: NodeJS.Timeout;
+  private timer: NodeJS.Timeout | undefined;
   private interval: number;
 
   constructor(mqtt: MqttConnection, sendInterval: number = 500) {
@@ -27,12 +27,12 @@ export class MqttSendQueue {
       return;
     }
 
-    logger.info("MqttSendQueue started");
-
     this.timer = setInterval(() => {
       this.sendMessages();
       this.resendMessages();
     }, this.interval);
+
+    logger.info("MqttSendQueue started");
   }
 
   private resendMessages() {
@@ -50,7 +50,7 @@ export class MqttSendQueue {
     const copy = this.queue.filter(item => item.transferState === TransferState.New);
     copy.forEach(x => {
       try {
-        if (this.mqtt.isConnected) {
+        if (this.mqtt.isConnected()) {
           this.mqtt.publish<any>(x);
           // const index = this.queue.indexOf(x);
           x.transferState = TransferState.Transfered;

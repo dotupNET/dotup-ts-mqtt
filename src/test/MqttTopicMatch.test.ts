@@ -1,5 +1,5 @@
 
-import { MqttTopicMatch } from "../src/Mqtt/MqttTopicMatch";
+import { MqttTopicMatch } from "../Mqtt/MqttTopicMatch";
 import { expect } from "chai";
 
 describe("AwesomeLibrary", () => {

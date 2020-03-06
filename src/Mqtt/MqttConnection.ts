@@ -1,5 +1,5 @@
 import { IDisposable, KeyValuePair } from "dotup-ts-types";
-import { connect, MqttClient, Packet, PacketCallback } from "mqtt";
+import { MqttClient, Packet, IClientSubscribeOptions } from "mqtt";
 import { MessageCallback } from "../types";
 import { IPublisher } from "./IPublisher";
 import { MqttTopicMatch } from "./MqttTopicMatch";
@@ -103,20 +103,34 @@ export class MqttConnection implements IPublisher, IDisposable {
 
   // public subscribe(topic: string | string[], opts: IClientSubscribeOptions, callback?: ClientSubscribeCallback): this;
   // public subscribe(topic: string | string[] | ISubscriptionMap, callback?: ClientSubscribeCallback): this;
-  subscribe(topic: string, callback: MessageCallback): void {
+  subscribe(topic: string, callback: MessageCallback): void;
+  subscribe(topic: string, options: IClientSubscribeOptions, callback: MessageCallback): void;
+  subscribe(topic: string, optsOrCallback: IClientSubscribeOptions | MessageCallback, callback?: MessageCallback): void {
+    const cb = callback ? callback : optsOrCallback as MessageCallback;
+    const opts = callback ? optsOrCallback as IClientSubscribeOptions : undefined;
+
     const entry = this.subscriber.find(x => x.key === topic);
     if (entry === undefined) {
-      this.subscriber.push({ key: topic, value: [callback] });
+      this.subscriber.push({ key: topic, value: [cb] });
     } else {
-      entry.value.push(callback);
+      entry.value.push(cb);
     }
 
-    this.client.subscribe(topic, undefined, err => {
-      if (err !== null) {
-        logger.error(err);
-        this.unsubscribe(topic, callback);
-      }
-    });
+    if (opts) {
+      this.client.subscribe(topic, opts, err => {
+        if (err !== null) {
+          logger.error(err);
+          this.unsubscribe(topic, cb);
+        }
+      });
+    } else {
+      this.client.subscribe(topic, err => {
+        if (err !== null) {
+          logger.error(err);
+          this.unsubscribe(topic, cb);
+        }
+      });
+    }
   }
 
   unsubscribe(topic: string, callback: MessageCallback): void {
@@ -150,7 +164,7 @@ export class MqttConnection implements IPublisher, IDisposable {
     });
     await end;
     this.client.removeAllListeners();
-    this.client = undefined;
+    delete this.client;
   }
 
 }
