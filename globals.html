@@ -103,6 +103,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#log4jconfiguration" class="tsd-kind-icon">Log4j<wbr>Configuration</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#messagecallback" class="tsd-kind-icon">Message<wbr>Callback</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#mqttsubscriber" class="tsd-kind-icon">Mqtt<wbr>Subscriber</a></li>
 							</ul>
@@ -117,8 +118,10 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#configurelogging" class="tsd-kind-icon">Configure<wbr>Logging</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#connectasync" class="tsd-kind-icon">connect<wbr>Async</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#gethostname" class="tsd-kind-icon">get<wbr>Hostname</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getnamedlogger" class="tsd-kind-icon">get<wbr>Named<wbr>Logger</a></li>
 							</ul>
 						</section>
 					</div>
@@ -127,12 +130,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="log4jconfiguration" class="tsd-anchor"></a>
+					<h3>Log4j<wbr>Configuration</h3>
+					<div class="tsd-signature tsd-kind-icon">Log4j<wbr>Configuration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Configuration</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/tools.ts#L8">dotup-ts-mqtt/src/tools.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="messagecallback" class="tsd-anchor"></a>
 					<h3>Message<wbr>Callback</h3>
 					<div class="tsd-signature tsd-kind-icon">Message<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>topic<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/types.ts#L1">dotup-ts-mqtt/src/types.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/types.ts#L1">dotup-ts-mqtt/src/types.ts:1</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -166,7 +179,7 @@
 					<div class="tsd-signature tsd-kind-icon">Mqtt<wbr>Subscriber<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">KeyValuePair</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>topic<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/Mqtt/MqttConnection.ts#L13">dotup-ts-mqtt/src/Mqtt/MqttConnection.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/Mqtt/MqttConnection.ts#L13">dotup-ts-mqtt/src/Mqtt/MqttConnection.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,12 +189,12 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="logger" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> logger</h3>
-					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol"> = getLogger(&quot;MqttConnection&quot;)</span></div>
+					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol"> = getNamedLogger(&quot;MqttConnection&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/Mqtt/AsyncClient.ts#L6">dotup-ts-mqtt/src/Mqtt/AsyncClient.ts:6</a></li>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/Mqtt/MqttConnection.ts#L11">dotup-ts-mqtt/src/Mqtt/MqttConnection.ts:11</a></li>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/Mqtt/MqttSendQueue.ts#L7">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/Mqtt/AsyncClient.ts#L6">dotup-ts-mqtt/src/Mqtt/AsyncClient.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/Mqtt/MqttConnection.ts#L11">dotup-ts-mqtt/src/Mqtt/MqttConnection.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/Mqtt/MqttSendQueue.ts#L8">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -191,13 +204,36 @@
 					<div class="tsd-signature tsd-kind-icon">sample<span class="tsd-signature-symbol">:</span> <a href="classes/sample.html" class="tsd-signature-type">Sample</a><span class="tsd-signature-symbol"> = new Sample()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/sample.ts#L41">dotup-ts-mqtt/src/sample.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/sample.ts#L41">dotup-ts-mqtt/src/sample.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="configurelogging" class="tsd-anchor"></a>
+					<h3>Configure<wbr>Logging</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">Configure<wbr>Logging<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="globals.html#log4jconfiguration" class="tsd-signature-type">Log4jConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/tools.ts#L10">dotup-ts-mqtt/src/tools.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="globals.html#log4jconfiguration" class="tsd-signature-type">Log4jConfiguration</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="connectasync" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> connect<wbr>Async</h3>
@@ -208,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/Mqtt/AsyncClient.ts#L8">dotup-ts-mqtt/src/Mqtt/AsyncClient.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/Mqtt/AsyncClient.ts#L8">dotup-ts-mqtt/src/Mqtt/AsyncClient.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -231,10 +267,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/a37842f/src/tools.ts#L2">dotup-ts-mqtt/src/tools.ts:2</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/tools.ts#L4">dotup-ts-mqtt/src/tools.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getnamedlogger" class="tsd-anchor"></a>
+					<h3>get<wbr>Named<wbr>Logger</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Named<wbr>Logger<span class="tsd-signature-symbol">(</span>loggerName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Logger</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/8504939/src/tools.ts#L14">dotup-ts-mqtt/src/tools.ts:14</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> loggerName: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Logger</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -290,6 +349,9 @@
 						<a href="interfaces/ipublisher.html" class="tsd-kind-icon">IPublisher</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#log4jconfiguration" class="tsd-kind-icon">Log4j<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#messagecallback" class="tsd-kind-icon">Message<wbr>Callback</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -302,10 +364,16 @@
 						<a href="globals.html#sample" class="tsd-kind-icon">sample</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#configurelogging" class="tsd-kind-icon">Configure<wbr>Logging</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#connectasync" class="tsd-kind-icon">connect<wbr>Async</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#gethostname" class="tsd-kind-icon">get<wbr>Hostname</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getnamedlogger" class="tsd-kind-icon">get<wbr>Named<wbr>Logger</a>
 					</li>
 				</ul>
 			</nav>
