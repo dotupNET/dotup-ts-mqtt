@@ -27,7 +27,7 @@ export class Sample {
     setInterval(() => {
       this.mqtt.publish<string>({
         topic: "test",
-        message: "Some payload",
+        message: new Date().toUTCString(),
         // messageId: '1',
         QoS: QosType.AtMostOnce,
         retain: false,
