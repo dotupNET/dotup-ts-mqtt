@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.1.1",
   "name": "@dotup/dotup-ts-mqtt",
   "author": {
     "name": "Peter Ullrich",
@@ -88,7 +88,7 @@
   "dependencies": {
     "@dotup/dotup-ts-types": "1.1.1",
     "log4js": "^6.1.2",
-    "mqtt": "^3.0.0",
+    "mqtt": "^2.18.8",
     "uuid": "^7.0.2"
   }
 }
