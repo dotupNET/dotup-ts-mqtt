@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { connect, MqttClient, IClientOptions } from "mqtt";
-import { MqttConnectionOptions } from "./MqttConnectionOptions";
-import { getNamedLogger } from "../tools";
+import { getNamedLogger } from "../MqttLogging";
 
 const logger = getNamedLogger("MqttConnection");
 

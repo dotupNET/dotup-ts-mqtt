@@ -11,3 +11,4 @@ export * from "./Mqtt/MqttSendQueue";
 export * from "./Mqtt/MqttTopicMatch";
 export * from "./Mqtt/QosType";
 export * from "./types";
+export * from "./MqttLogging";

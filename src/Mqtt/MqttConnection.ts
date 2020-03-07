@@ -6,7 +6,7 @@ import { MqttTopicMatch } from "./MqttTopicMatch";
 import { MqttConnectionOptions } from "./MqttConnectionOptions";
 import { IMqttMessage } from "./IMqttMessage";
 import { connectAsync } from "./AsyncClient";
-import { getNamedLogger } from "../tools";
+import { getNamedLogger } from "../MqttLogging";
 
 const logger = getNamedLogger("MqttConnection");
 

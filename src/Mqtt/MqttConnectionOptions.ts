@@ -3,9 +3,18 @@ export class MqttConnectionOptions {
   clientId: string;
   port?: number = 1883;
   protocol?: "wss" | "ws" | "mqtt" | "mqtts" | "tcp" | "ssl" | "wx" | "wxs" = "ws";
-  connectTimeoutMs?: number = 5000;
-  keepaliveSec?: number = 10;
-  reconnectPeriodMs?: number = 5000;
+  /**
+   * millisecodns
+   */
+  connectTimeout?: number = 5000;
+  /**
+   * seconds
+   */
+  keepalive?: number = 10;
+  /**
+   * milliseconds
+   */
+  reconnectPeriod?: number = 5000;
   clean?: boolean = false;
   resubscribe?: boolean = true;
   username?: string;
