@@ -5,7 +5,15 @@ import { getNamedLogger } from "../MqttLogging";
 const logger = getNamedLogger("MqttConnection");
 
 export const connectAsync = async (options: Partial<IClientOptions>): Promise<MqttClient> => {
-  const client = connect(undefined, options);
+  const client = connect(undefined,
+    {
+      hostname: `${options.host}`,
+      protocol: options.protocol,
+      host: options.host,
+      port: options.port,
+      clientId: options.clientId,
+      clean: options.clean
+    });
 
   return new Promise((resolve, reject) => {
     // Listeners added to client to trigger promise resolution
