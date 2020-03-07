@@ -22,6 +22,14 @@
       "script": "build",
       "group": "build",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "build-ts",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build"
     }
   ]
 }

@@ -24,16 +24,18 @@ export class Sample {
       console.log(`topic: ${topic}| message: ${message}`);
     });
 
-    this.mqtt.publish<string>({
-      topic: "test",
-      message: "Some payload",
-      // messageId: '1',
-      QoS: QosType.AtMostOnce,
-      retain: false,
-      transferState: TransferState.New,
-      transferTimestamp: new Date(new Date().toUTCString())
-    });
+    setInterval(() => {
+      this.mqtt.publish<string>({
+        topic: "test",
+        message: "Some payload",
+        // messageId: '1',
+        QoS: QosType.AtMostOnce,
+        retain: false,
+        transferState: TransferState.New,
+        transferTimestamp: new Date(new Date().toUTCString())
+      });
 
+    }, 1000);
   }
 
 }
