@@ -1,27 +1,12 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { connect, MqttClient } from "mqtt";
+import { connect, MqttClient, IClientOptions } from "mqtt";
 import { MqttConnectionOptions } from "./MqttConnectionOptions";
 import { getLogger } from "log4js";
 
 const logger = getLogger("MqttConnection");
 
-export const connectAsync = async (options: Partial<MqttConnectionOptions>): Promise<MqttClient> => {
-  const client = connect(undefined,
-    {
-      host: options.hostname,
-      hostname: options.hostname,
-      port: options.port,
-      protocol: options.protocol,
-      clientId: options.clientId,
-      connectTimeout: options.connectTimeoutMs,
-      keepalive: options.keepaliveSec,
-      reconnectPeriod: options.reconnectPeriodMs,
-      clean: options.clean,
-      resubscribe: options.resubscribe,
-      username: options.username,
-      password: options.password
-    }
-  );
+export const connectAsync = async (options: Partial<IClientOptions>): Promise<MqttClient> => {
+  const client = connect(undefined, options);
 
   return new Promise((resolve, reject) => {
     // Listeners added to client to trigger promise resolution
