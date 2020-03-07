@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { connect, MqttClient, IClientOptions } from "mqtt";
 import { MqttConnectionOptions } from "./MqttConnectionOptions";
-import { getLogger } from "log4js";
+import { getNamedLogger } from "../tools";
 
-const logger = getLogger("MqttConnection");
+const logger = getNamedLogger("MqttConnection");
 
 export const connectAsync = async (options: Partial<IClientOptions>): Promise<MqttClient> => {
   const client = connect(undefined, options);

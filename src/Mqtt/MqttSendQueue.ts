@@ -3,8 +3,9 @@ import { IMessage } from "./IMessage";
 import { getLogger } from "log4js";
 import { IMqttMessage } from "./IMqttMessage";
 import { TransferState } from "./TransferState";
+import { getNamedLogger } from "../tools";
 
-const logger = getLogger("MqttConnection");
+const logger = getNamedLogger("MqttConnection");
 
 export class MqttSendQueue {
   private readonly mqtt: MqttConnection;

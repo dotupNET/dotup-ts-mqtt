@@ -3,12 +3,12 @@ import { MqttClient, Packet, IClientSubscribeOptions } from "mqtt";
 import { MessageCallback } from "../types";
 import { IPublisher } from "./IPublisher";
 import { MqttTopicMatch } from "./MqttTopicMatch";
-import { getLogger } from "log4js";
 import { MqttConnectionOptions } from "./MqttConnectionOptions";
 import { IMqttMessage } from "./IMqttMessage";
 import { connectAsync } from "./AsyncClient";
+import { getNamedLogger } from "../tools";
 
-const logger = getLogger("MqttConnection");
+const logger = getNamedLogger("MqttConnection");
 
 export declare type MqttSubscriber = KeyValuePair<string, ((topic: string, message: string) => void)[]>;
 
@@ -31,7 +31,7 @@ export class MqttConnection implements IPublisher, IDisposable {
 
   async connect(options: Partial<MqttConnectionOptions>): Promise<void> {
 
-    const connectionInfo = `hostname: ${options.hostname} | port: ${options.port} | protocol: ${options.protocol}`;
+    const connectionInfo = `hostname: ${options.host} | port: ${options.port} | protocol: ${options.protocol}`;
 
     logger.info(`Connecting to '${connectionInfo}'`);
 

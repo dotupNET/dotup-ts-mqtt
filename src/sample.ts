@@ -14,7 +14,7 @@ export class Sample {
     // Initialize logger
     this.mqtt = new MqttConnection();
     await this.mqtt.connect({
-      hostname: "localhost",
+      host: "localhost",
       protocol: "ws",
       port: 1883,
       clientId: `dotup-ts-mqtt-${getHostname()}`

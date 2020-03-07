@@ -1,5 +1,5 @@
 export class MqttConnectionOptions {
-  hostname: string;
+  host: string;
   clientId: string;
   port?: number = 1883;
   protocol?: "wss" | "ws" | "mqtt" | "mqtts" | "tcp" | "ssl" | "wx" | "wxs" = "ws";
