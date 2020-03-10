@@ -9,7 +9,7 @@ const logger = getNamedLogger("MqttConnection");
 
 export class MqttSendQueue {
   private readonly mqtt: MqttConnection;
-  private queue: IMqttMessage<unknown>[] = [];
+  private queue: IMqttMessage<IMessage>[] = [];
   private timer: NodeJS.Timeout | undefined;
   private interval: number;
   messageAfterSeconds: number | undefined;
@@ -76,19 +76,12 @@ export class MqttSendQueue {
     }
   }
 
-  add<T>(item: IMqttMessage<T>): void {
+  add<T extends IMessage>(item: IMqttMessage<T>): void {
     this.queue.push(item);
   }
 
   remove(ids: string[]): void {
-    const index = ids.map(id => this.queue.findIndex(item => (item.message as IMessage).id === id));
-
-    index.forEach(i => {
-      if (i > -1) {
-        this.queue.splice(i, 1);
-      }
-    });
-
+    this.queue = this.queue.filter(item => ids.every(id => item.message!.id !== id));
   }
 
 }
