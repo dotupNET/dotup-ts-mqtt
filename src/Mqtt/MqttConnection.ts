@@ -16,9 +16,11 @@ export class MqttConnection implements IPublisher, IDisposable {
 
   private client: MqttClient;
   readonly subscriber: MqttSubscriber[];
+  private onConnected: ((client: MqttClient) => void) | undefined;
 
-  constructor() {
+  constructor(onConnected?: (client: MqttClient) => void) {
     this.subscriber = [];
+    this.onConnected = onConnected;
   }
 
   isConnected(): boolean {
@@ -55,6 +57,8 @@ export class MqttConnection implements IPublisher, IDisposable {
     logger.info("Register MQTT 'connect' event");
     this.client.on("connect", () => {
       logger.info(`Connected | ${connectionInfo}`);
+      if (this.onConnected)
+        this.onConnected(this.client);
     });
 
     logger.info("Register MQTT 'message' event");
@@ -153,6 +157,7 @@ export class MqttConnection implements IPublisher, IDisposable {
 
   async dispose(): Promise<void> {
     // this.client.end()
+    this.onConnected = undefined;
     if (this.client === undefined) {
       return;
     }

@@ -1,5 +1,5 @@
 {
-  "version": "2.3.0",
+  "version": "2.3.1",
   "name": "@dotup/dotup-ts-mqtt",
   "author": {
     "name": "Peter Ullrich",
@@ -61,13 +61,6 @@
     "dotup-ts-git-wrapper": "^1.0.0",
     "eslint": "^6.8.0",
     "gh-pages": "^2.2.0",
-    "gulp": "^4.0.2",
-    "gulp-eslint": "6.0.0",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-mocha": "^7.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-typedoc": "^2.2.4",
-    "gulp-typescript": "^5.0.1",
     "mocha": "^7.1.0",
     "ts-node": "^8.6.2",
     "typedoc": "^0.16.11",
