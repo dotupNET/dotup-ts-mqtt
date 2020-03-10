@@ -84,10 +84,11 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="mqttsendqueue.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mqttsendqueue.html#interval" class="tsd-kind-icon">interval</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mqttsendqueue.html#messageafterseconds" class="tsd-kind-icon">message<wbr>After<wbr>Seconds</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mqttsendqueue.html#mqtt" class="tsd-kind-icon">mqtt</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mqttsendqueue.html#queue" class="tsd-kind-icon">queue</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mqttsendqueue.html#timer" class="tsd-kind-icon">timer</a></li>
@@ -99,7 +100,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="mqttsendqueue.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttsendqueue.html#getsendqueuesize" class="tsd-kind-icon">get<wbr>Send<wbr>Queue<wbr>Size</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttsendqueue.html#remove" class="tsd-kind-icon">remove</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="mqttsendqueue.html#resendmessages" class="tsd-kind-icon">resend<wbr>Messages</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttsendqueue.html#resendmessages" class="tsd-kind-icon">resend<wbr>Messages</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="mqttsendqueue.html#sendmessages" class="tsd-kind-icon">send<wbr>Messages</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttsendqueue.html#start" class="tsd-kind-icon">start</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mqttsendqueue.html#stop" class="tsd-kind-icon">stop</a></li>
@@ -114,13 +115,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Mqtt<wbr>Send<wbr>Queue<span class="tsd-signature-symbol">(</span>mqtt<span class="tsd-signature-symbol">: </span><a href="mqttconnection.html" class="tsd-signature-type">MqttConnection</a>, sendInterval<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mqttsendqueue.html" class="tsd-signature-type">MqttSendQueue</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Mqtt<wbr>Send<wbr>Queue<span class="tsd-signature-symbol">(</span>mqtt<span class="tsd-signature-symbol">: </span><a href="mqttconnection.html" class="tsd-signature-type">MqttConnection</a>, sendInterval<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, messageAfterSeconds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mqttsendqueue.html" class="tsd-signature-type">MqttSendQueue</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L14">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L15">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -131,13 +132,16 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> sendInterval: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 500</span></h5>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> messageAfterSeconds: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="mqttsendqueue.html" class="tsd-signature-type">MqttSendQueue</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="interval" class="tsd-anchor"></a>
@@ -145,7 +149,17 @@
 					<div class="tsd-signature tsd-kind-icon">interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L14">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L14">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="messageafterseconds" class="tsd-anchor"></a>
+					<h3>message<wbr>After<wbr>Seconds</h3>
+					<div class="tsd-signature tsd-kind-icon">message<wbr>After<wbr>Seconds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L15">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">mqtt<span class="tsd-signature-symbol">:</span> <a href="mqttconnection.html" class="tsd-signature-type">MqttConnection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L11">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L11">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +179,7 @@
 					<div class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imqttmessage.html" class="tsd-signature-type">IMqttMessage</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L12">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L12">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Timeout</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L13">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L13">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +206,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L75">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L79">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -221,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L22">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L24">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -238,7 +252,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L79">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L83">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -251,19 +265,25 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="resendmessages" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> resend<wbr>Messages</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">resend<wbr>Messages<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<h3>resend<wbr>Messages</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">resend<wbr>Messages<span class="tsd-signature-symbol">(</span>messageAgeInSeconds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L39">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L43">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:43</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> messageAgeInSeconds: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5000</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -278,7 +298,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L50">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L54">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -295,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L26">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L28">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -312,7 +332,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/09b8e66/src/Mqtt/MqttSendQueue.ts#L67">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-mqtt/blob/c1f2dce/src/Mqtt/MqttSendQueue.ts#L71">dotup-ts-mqtt/src/Mqtt/MqttSendQueue.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -360,6 +380,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="mqttsendqueue.html#interval" class="tsd-kind-icon">interval</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mqttsendqueue.html#messageafterseconds" class="tsd-kind-icon">message<wbr>After<wbr>Seconds</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="mqttsendqueue.html#mqtt" class="tsd-kind-icon">mqtt</a>
 							</li>
@@ -378,7 +401,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mqttsendqueue.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mqttsendqueue.html#resendmessages" class="tsd-kind-icon">resend<wbr>Messages</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
