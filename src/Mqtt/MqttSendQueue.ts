@@ -12,11 +12,11 @@ export class MqttSendQueue {
   private queue: IMqttMessage<IMessage>[] = [];
   private timer: NodeJS.Timeout | undefined;
   private interval: number;
-  resendMessageAfterSeconds: number | undefined;
+  resendMessageAfterMs: number | undefined;
 
-  constructor(mqtt: MqttConnection, sendInterval: number = 500, resendMessageAfterSeconds?: number) {
+  constructor(mqtt: MqttConnection, sendInterval: number = 500, resendMessageAfterMs?: number) {
     logger.info("Creating MqttSendQueue");
-    this.resendMessageAfterSeconds = resendMessageAfterSeconds;
+    this.resendMessageAfterMs = resendMessageAfterMs;
     this.interval = sendInterval;
     this.mqtt = mqtt;
   }
@@ -35,20 +35,20 @@ export class MqttSendQueue {
 
     this.timer = setInterval(() => {
       this.sendMessages();
-      if (this.resendMessageAfterSeconds && this.resendMessageAfterSeconds > 0) {
-        this.resendMessages(this.resendMessageAfterSeconds);
+      if (this.resendMessageAfterMs && this.resendMessageAfterMs > 0) {
+        this.resendMessages(this.resendMessageAfterMs);
       }
     }, this.interval);
 
     logger.info("MqttSendQueue started");
   }
 
-  resendMessages(messageAgeInSeconds: number = 5000): void {
+  resendMessages(messageAgeInMs: number = 5000): void {
     const now = new Date(new Date().toUTCString());
 
     this.queue.forEach(item => {
       const diff = now.getTime() - item.transferTimestamp.getTime();
-      if (diff > messageAgeInSeconds) {
+      if (diff > messageAgeInMs) {
         item.transferState = TransferState.New;
       }
     });
