@@ -12,13 +12,18 @@ export class MqttSendQueue {
   private queue: IMqttMessage<IMessage>[] = [];
   private timer: NodeJS.Timeout | undefined;
   private interval: number;
-  resendMessageAfterMs: number | undefined;
+  readonly resendMessageAfterMs: number;
 
   constructor(mqtt: MqttConnection, sendInterval: number = 500, resendMessageAfterMs?: number) {
     logger.info("Creating MqttSendQueue");
-    this.resendMessageAfterMs = resendMessageAfterMs;
     this.interval = sendInterval;
     this.mqtt = mqtt;
+
+    if (resendMessageAfterMs && (resendMessageAfterMs > 500 && resendMessageAfterMs < 20000)) {
+      this.resendMessageAfterMs = resendMessageAfterMs;
+    } else {
+      this.resendMessageAfterMs = 5000;
+    }
   }
 
   getSendQueueSize(): number {
@@ -35,9 +40,7 @@ export class MqttSendQueue {
 
     this.timer = setInterval(() => {
       this.sendMessages();
-      if (this.resendMessageAfterMs && this.resendMessageAfterMs > 0) {
-        this.resendMessages(this.resendMessageAfterMs);
-      }
+      this.resendMessages(this.resendMessageAfterMs);
     }, this.interval);
 
     logger.info("MqttSendQueue started");
