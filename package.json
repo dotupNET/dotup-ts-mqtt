@@ -44,7 +44,8 @@
     "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\"",
     "watch-debug-nodemon": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
     "postpublish": "git tag -a v%npm_package_version% -m \"Release v%npm_package_version%\" && git push origin --tags",
-    "commit-release": "git commit -a -m \"Release v%npm_package_version%\" && git push && git tag -a v%npm_package_version% -m \"Release v%npm_package_version%\" && git push origin --tags"
+    "commit-release": "git commit -a -m \"Release v%npm_package_version%\" && git push && git tag -a v%npm_package_version% -m \"Release v%npm_package_version%\" && git push origin --tags",
+    "commit-tag": "git push && git tag -a v%npm_package_version% -m \"Release v%npm_package_version%\" && git push origin --tags"
   },
   "devDependencies": {
     "@types/chai": "^4.2.10",
