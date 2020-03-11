@@ -12,11 +12,11 @@ export class MqttSendQueue {
   private queue: IMqttMessage<IMessage>[] = [];
   private timer: NodeJS.Timeout | undefined;
   private interval: number;
-  messageAfterSeconds: number | undefined;
+  resendMessageAfterSeconds: number | undefined;
 
-  constructor(mqtt: MqttConnection, sendInterval: number = 500, messageAfterSeconds?: number) {
+  constructor(mqtt: MqttConnection, sendInterval: number = 500, resendMessageAfterSeconds?: number) {
     logger.info("Creating MqttSendQueue");
-    this.messageAfterSeconds = messageAfterSeconds;
+    this.resendMessageAfterSeconds = resendMessageAfterSeconds;
     this.interval = sendInterval;
     this.mqtt = mqtt;
   }
@@ -30,10 +30,13 @@ export class MqttSendQueue {
       return;
     }
 
+    this.resendMessages(0);
+    this.sendMessages();
+
     this.timer = setInterval(() => {
       this.sendMessages();
-      if (this.messageAfterSeconds && this.messageAfterSeconds > 0) {
-        this.resendMessages(this.messageAfterSeconds);
+      if (this.resendMessageAfterSeconds && this.resendMessageAfterSeconds > 0) {
+        this.resendMessages(this.resendMessageAfterSeconds);
       }
     }, this.interval);
 
